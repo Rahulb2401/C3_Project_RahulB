@@ -68,4 +68,13 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    @Test
+    public void calculating_total_price_of_selected_items_from_the_menu(){
+        Double price;
+Item  item = null;
+restaurant.addItem(item,price);
+    }
+
 }
+
