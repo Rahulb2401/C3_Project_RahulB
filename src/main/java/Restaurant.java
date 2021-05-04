@@ -59,8 +59,31 @@ public class Restaurant {
         menu.remove(itemToBeRemoved);
     }
 
-    //Calculating total price
+    //Calculating total price of the items added to our list
+    
+    private List<Item> selectedMenu = new ArrayList<Item>();
+    Double price=0.0;
+    public Double selectItemFromMenu(String Itemname){
 
+        Item itemToBeSelected = findItemByName(Itemname);
+        if(!selectedMenu.contains(itemToBeSelected)) {
+            selectedMenu.add(itemToBeSelected);
+            price += itemToBeSelected.getPrice();
+            return price;
+        }
+        return null;
+    }
+    public Double removeItemFromMenu(String Itemname)
+    {
+        Item itemToBeRemoved = findItemByName(Itemname);
+        if(selectedMenu.contains(itemToBeRemoved)){
+            selectedMenu.remove(itemToBeRemoved);
+                price-=itemToBeRemoved.getPrice();
+                return price;
+
+        }
+        return null;
+    }
 
 
     public void displayDetails(){

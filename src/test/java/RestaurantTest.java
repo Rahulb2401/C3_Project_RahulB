@@ -1,3 +1,5 @@
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -71,9 +73,25 @@ class RestaurantTest {
 
     @Test
     public void calculating_total_price_of_selected_items_from_the_menu(){
-        Double price;
-Item  item = null;
-restaurant.addItem(item,price);
+ refactorCode();
+
+//Checking with the existing menu items
+        restaurant.selectItemFromMenu("Sweet corn soup");
+        restaurant.selectItemFromMenu("Vegetable lasagne");
+
+        assertEquals(388.0,restaurant.price)    ;
+
+
+  //Checking by adding a new item
+        restaurant.addToMenu("chicken wings", 300);
+        restaurant.selectItemFromMenu("chicken wings");
+
+       assertEquals(688.0,restaurant.price);
+
+//Removing the added item
+        assertNotNull( restaurant.removeItemFromMenu("chicken wings"));
+        assertEquals(388,restaurant.price);
+
     }
 
 }
