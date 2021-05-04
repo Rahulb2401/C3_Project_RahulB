@@ -63,7 +63,6 @@ public class Restaurant {
 
 
 
-
     public void displayDetails(){
         System.out.println("Restaurant:"+ name + "\n"
                 +"Location:"+ location + "\n"
